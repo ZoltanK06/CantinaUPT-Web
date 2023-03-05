@@ -28,6 +28,61 @@
   color: #61dafb;
 }
 
+.Navbar-loginButton:hover {
+  background-color: #B0BEFD !important;
+}
+
+.Landing-continueButton:hover {
+  background-color: #001D8F !important;
+}
+
+.Meals-mealContainer:hover .Meals-addToCart {
+  transform: scale(1.3) translate(-10%, -10%);
+  transition: .3s ease;
+}
+
+.Menu-categoryContainer:hover .Menu-goToCategory {
+  transform: scale(1.3) translate(-9.5%, -9.5%);
+  transition: .3s ease;
+}
+
+.Cart-startShopping:hover {
+  background-color: #001D8F !important;
+}
+
+.Orders-startShopping:hover {
+  background-color: #001D8F !important;
+}
+
+.AddCanteen-addButton:hover {
+  background-color: #001D8F !important;
+}
+
+.EditCanteen-editButton:hover {
+  background-color: #001D8F !important;
+}
+
+.Canteen-uploadButton:hover {
+  background-color: #001D8F !important;
+}
+
+.AddManager-addButton:hover {
+  background-color: #001D8F !important;
+}
+
+.DeleteManager-deleteButton:hover {
+  background-color: #001D8F !important;
+}
+
+.EditManager-editButton:hover {
+  background-color: #001D8F !important;
+}
+
+.ManagerMeals-button:hover {
+  transform: scale(1.15);
+  transition: .3s ease;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +90,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #EBEEFF; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #01135d;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #011D79; 
 }
