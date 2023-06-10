@@ -36,6 +36,14 @@
   background-color: #001D8F !important;
 }
 
+.Login-loginButton:hover {
+  background-color: #001D8F !important;
+}
+
+.Register-loginButton:hover {
+  background-color: #001D8F !important;
+}
+
 .Meals-mealContainer:hover .Meals-addToCart {
   transform: scale(1.3) translate(-10%, -10%);
   transition: .3s ease;
@@ -83,6 +91,10 @@
   transition: .3s ease;
 }
 
+.link:hover {
+  text-decoration: underline;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -109,4 +121,16 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #011D79; 
+}
+
+.Modal-noButton:hover {
+  background-color: #B0BEFD !important;
+}
+
+.Modal-yesButton:hover {
+  background-color: #001D8F !important;
+}
+
+.Order-detailButton:hover {
+  background-color: #001D8F !important;
 }

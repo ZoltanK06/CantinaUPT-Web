@@ -7,7 +7,7 @@ export const AdminManagerComponent = () => {
     let navigate = useNavigate();
 
   return (
-    <div style={{height: '91vh', display: 'flex', paddingLeft: '10%', paddingRight: '10%', alignItems: 'center', justifyContent: 'space-between'}}>
+    <div style={{height: '91vh', display: 'flex', paddingLeft: '10%', paddingRight: '10%', alignItems: 'center', justifyContent: 'space-between', gap: 64}}>
         <div style={{width: 400, display: 'flex', padding: '50px 0px', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 75, boxShadow: '0px 5px 20px 25px #CFE1F2', borderRadius: 20}}>
             <RiAddCircleFill style={{height: 100, width: 100, color: '#01135d'}}/>
             <text style={{fontSize: 24, fontWeight: 'bold', color: '#01135d'}}>Adaugati manager nou</text>
