@@ -55,11 +55,16 @@ export const PaymentComponent = () => {
   
   const onNoClicked = () => {
     setLoading(true);
-    CanteenApi.AddOrder(createOrder()).then(() => {
-      setOpenModal(false);
-      sendOrder();
-      toast.success('Comanda dumneavoastra va fi pregatita in cel mai scurt timp!');
-      navigate('/orders');
+    CanteenApi.AddOrder(createOrder())
+      .then(() => {
+        setOpenModal(false);
+        sendOrder();
+        cartContext.setCartItems([]);
+        cartContext.setCartItemsCount(0);  
+        localStorage.removeItem('cart');   
+        setLoading(true); 
+        toast.success('Comanda dumneavoastra va fi pregatita in cel mai scurt timp!');
+        navigate('/orders');
     }).catch(() => toast.error('S-a produs o eroare!'));
   }
 
@@ -73,13 +78,19 @@ export const PaymentComponent = () => {
     let userId = JSON.parse(localStorage.getItem('user')).id;
     CanteenApi.AddCard(userId, card)
     .then(() => {
-      setOpenModal(false);
-      toast.success('Comanda dumneavoastra va fi pregatita in cel mai scurt timp!');
-      sendOrder();
-      setLoading(true);
-      setTimeout(() => {
-        navigate('/orders');
-      }, 1500)
+      toast.success('Card salvat cu succes!');
+      CanteenApi.AddOrder(createOrder())
+        .then(() => {
+          setOpenModal(false);
+          sendOrder();
+          cartContext.setCartItems([]);
+          cartContext.setCartItemsCount(0);  
+          localStorage.removeItem('cart');   
+          setLoading(true); 
+          toast.success('Comanda dumneavoastra va fi pregatita in cel mai scurt timp!');
+          navigate('/orders');
+        })
+        .catch(() => toast.error('S-a produs o eroare!'));
     })
     .catch(() => toast.error('S-a produs o eroare!'));
     
@@ -110,7 +121,6 @@ export const PaymentComponent = () => {
           toast.warning('CVC incomplet!');
         }else{
           setOpenModal(true);
-          sendOrder();
         }
       }
       else{
@@ -122,6 +132,9 @@ export const PaymentComponent = () => {
         .then(() => {
           setOpenModal(false);
           sendOrder();
+          cartContext.setCartItems([]);
+          cartContext.setCartItemsCount(0);  
+          localStorage.removeItem('cart');    
           toast.success('Comanda dumneavoastra va fi pregatita in cel mai scurt timp!');
           navigate('/orders');
         })
@@ -158,8 +171,6 @@ export const PaymentComponent = () => {
     let maxLength = 3
     return clearValue.slice(0, maxLength)
   }
-
-  
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()

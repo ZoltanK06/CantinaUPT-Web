@@ -74,7 +74,7 @@ export const MealsComponent = () => {
                             <div style={{paddingLeft: 20, width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', color: '#01135d'}}>
                                 <h3>{meal.name}</h3>
                                 <text style={{fontSize: 13, textAlign: 'justify'}}>{meal.description}</text>
-                                <h3>{meal.price} lei</h3>
+                                <h3>{meal.price} lei / {meal.portion.toLowerCase()}</h3>
                             </div>
                             <div style={{width: '50%', padding: 20, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                                 <div style={{height: 175, width: 200, borderRadius: 20, backgroundImage: `url(${meal.pictureURL})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end'}}>

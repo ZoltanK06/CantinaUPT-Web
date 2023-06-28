@@ -28,6 +28,7 @@ const markOrderFinished = (orderId) => {
             .then(res => {
                 setInProgressOrders(res.filter(e => e.status === 'Preparing'));
                 setFinishedOrders(res.filter(e => e.status === 'Ready'));
+                updateOrder();
             })
             .catch(() => toast.error('S-a produs o eroare!'));
     })
@@ -42,6 +43,7 @@ const markOrderTaken = (orderId) => {
             .then(res => {
                 setInProgressOrders(res.filter(e => e.status === 'Preparing'));
                 setFinishedOrders(res.filter(e => e.status === 'Ready'));
+                updateOrder();
             })
             .catch(() => toast.error('S-a produs o eroare!'));
     })
@@ -57,11 +59,16 @@ useEffect(() => {
     setConnection(newConnection);
     CanteenApi.GetOrdersForCanteen(selectedInstancesContext.managerSelectedCanteenId)
         .then(res => {
-            setInProgressOrders(res.filter(e => e.status === 'Preparing'));
-            setFinishedOrders(res.filter(e => e.status === 'Ready'));
+            if(res){
+                setInProgressOrders(res.filter(e => e.status === 'Preparing'));
+                setFinishedOrders(res.filter(e => e.status === 'Ready'));
+            } 
             setLoading(false);
         })
-        .catch(() => toast.error('S-a produs o eroare!'));
+        .catch((e) => {
+            toast.error('S-a produs o eroare!')
+            console.log(e);
+        });
 }, []);
 
 useEffect(() => {
@@ -82,6 +89,16 @@ useEffect(() => {
             .catch(e => console.log('Connection failed: ', e));
     }
 }, [connection]);
+
+const updateOrder = async () => {
+    try {
+        console.log('Intra!');
+        await connection.invoke('UpdateOrder');
+    }
+    catch(e) {
+        console.log(e);
+    }
+}
 
   return (
     <div>

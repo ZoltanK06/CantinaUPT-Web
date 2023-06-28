@@ -43,29 +43,29 @@ export const LoginComponent = () => {
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '91vh'}}>
          <div style={{width: '100%', maxWidth: 450, borderRadius: 10, padding: 50, paddingBottom: 100, paddingTop: 50, marginBottom: 40, backgroundColor: '#fff', boxShadow: '0px 10px 20px 10px #CFE1F2', textAlign: 'center'}}>
-            <h2 style={{color: '#01135d', marginBottom: 50}}>Log in</h2>
+            <h2 style={{color: '#01135d', marginBottom: 50}}>Autentificati-va</h2>
             <div>
                 <div style={{marginBottom: 24, textAlign: 'left', width: 410}}>
-                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="login-email">Username / Email Address</label>
+                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="login-email">Nume utilizator / Email </label>
                     <input 
                         onChange={e => {
                             setUserNameOrEmail(e.target.value); 
                         }}
                         style={{width: '100%', outline: 'none', padding: '8px 16px', border: '1px solid #e0e6e8', borderRadius: 4, fontSize: '1rem', color: '#7C7C7C', transition: 'box-shadow 0.2s'}} 
                         type="text" 
-                        placeholder="username / name@email.com" 
+                        placeholder="Nume utilizator / nume@email.com" 
                         id="login-email" 
                     />
                 </div>
                 <div style={{marginBottom: 24, textAlign: 'left', width: 410}}>
-                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="login-password">Password</label>
+                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="login-password">Parola</label>
                     <input 
                         onChange={e => {
                             setPassword(e.target.value); 
                         }}
                         style={{width: '100%', outline: 'none', padding: '8px 16px', border: '1px solid #e0e6e8', borderRadius: 4, fontSize: '1rem', color: '#7C7C7C', transition: 'box-shadow 0.2s'}} 
                         type="password" 
-                        placeholder="Password" 
+                        placeholder="Parola" 
                         id="login-password"
                     />
                 </div>
@@ -73,10 +73,10 @@ export const LoginComponent = () => {
                     className='Login-loginButton' 
                     style={{height: 40, width: '98%', border: 'none', borderRadius: 5,backgroundColor: '#01135d', color: '#D7DEFE', fontSize: 16, fontWeight: 'bold', cursor: 'pointer', marginBottom: 20, marginTop: 24}}
                     onClick={() => login()}
-                >Log in</button>
+                >Autentificati-va</button>
             </div>
-            <span>Don't have an account?
-                <span className='link' style={{marginLeft: 5, color: '#0074cc', cursor: 'pointer'}} onClick={() => navigate('/register')}>Sign Up</span>
+            <span>Nu aveti cont?
+                <span className='link' style={{marginLeft: 5, color: '#0074cc', cursor: 'pointer'}} onClick={() => navigate('/register')}>Inregistrati-va</span>
             </span>
         </div>
 

@@ -11,6 +11,7 @@ import { AuthContext, SelectedInstancesContext } from '../App'
 import { CanteenApi } from '../Helpers/Service/CanteenService'
 import { LoadingComponent } from './LoadingComponent'
 import { OrderDetailsModal } from './OrderDetailsModal'
+import { HubConnectionBuilder } from '@microsoft/signalr'
 
 export const OrdersComponent = () => {
 
@@ -18,6 +19,8 @@ export const OrdersComponent = () => {
 
     const authContext = useContext(AuthContext);
     const selectedInstancesContext = useContext(SelectedInstancesContext);
+
+    const [connection, setConnection] = useState(null);
 
     const [loading, setLoading] = useState(true);
     const [openModal, setOpenModal] = useState(false);
@@ -28,11 +31,49 @@ export const OrdersComponent = () => {
         if(authContext.isLogedIn === true){
             let userId = JSON.parse(localStorage.getItem('user')).id;
             CanteenApi.GetCurrentOrder(userId, selectedInstancesContext.selectedCanteenId)
-                .then(res => setCurrentOrder(res))
-                .then(() => setLoading(false))
+                .then(res => {
+                    if(res){
+                        setCurrentOrder(res);
+                    }else{
+                        setCurrentOrder(null);
+                    }
+                    setLoading(false);
+                })
                 .catch(() => toast.error('S-a produs o eroare!'));
+        }else{
+            setLoading(false); 
         }
+        const newConnection = new HubConnectionBuilder()
+        .withUrl('http://localhost:57678/hubs/orders')
+        .withAutomaticReconnect()
+        .build();
+
+        setConnection(newConnection);
     }, [])
+
+    useEffect(() => {
+        if (connection) {
+            connection.start()
+                .then(result => {
+                    console.log('Connected!');
+                    connection.on('SeeOrderStatus', () => {
+                        console.log('Intra si aici!');
+                        let userId = JSON.parse(localStorage.getItem('user')).id;
+                        CanteenApi.GetCurrentOrder(userId, selectedInstancesContext.selectedCanteenId)
+                            .then(res => {
+                                if(res){
+                                    setCurrentOrder(res);
+                                }else{
+                                    setCurrentOrder(null);
+                                }
+                                setLoading(false);
+                            })
+                            .catch(() => toast.error('S-a produs o eroare!'));
+                    });
+                })
+                .catch(e => console.log('Connection failed: ', e));
+        }
+    }, [connection]);
 
   return (
     <div>

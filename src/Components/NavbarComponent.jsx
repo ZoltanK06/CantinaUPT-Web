@@ -60,19 +60,19 @@ export const NavbarComponent = () => {
             {authContext.isLogedIn === false &&
                 <button 
                     className="Navbar-loginButton" 
-                    style={{height: 35, width: 100, borderRadius: 7, backgroundColor: '#9BADFD', border: 'none', paddingLeft: 20, paddingRight: 20, color: '#01135d', cursor: 'pointer', marginLeft: 24}}
+                    style={{height: 35, width: 145, borderRadius: 7, backgroundColor: '#9BADFD', border: 'none', paddingLeft: 20, paddingRight: 20, color: '#01135d', cursor: 'pointer', marginLeft: 24}}
                     onClick={() => navigate('/login')}
                 >
-                    <b>Log in</b>
+                    <b>Autentificati-va</b>
                 </button>
             }
             {authContext.isLogedIn === true &&
                 <button 
                     className="Navbar-loginButton" 
-                    style={{height: 35, width: 100, borderRadius: 7, backgroundColor: '#9BADFD', border: 'none', paddingLeft: 20, paddingRight: 20, color: '#01135d', cursor: 'pointer'}}
+                    style={{height: 35, width: 145, borderRadius: 7, backgroundColor: '#9BADFD', border: 'none', paddingLeft: 20, paddingRight: 20, color: '#01135d', cursor: 'pointer'}}
                     onClick={() => signOut()}
                 >
-                    <b>Sign out</b>
+                    <b>Deconectati-va</b>
                 </button>
             }
         </div>

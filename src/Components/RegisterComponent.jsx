@@ -44,17 +44,17 @@ export const RegisterComponent = () => {
   return (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '91vh'}}>
          <div style={{width: '100%', maxWidth: 450, borderRadius: 10, padding: 50, paddingBottom: 100, paddingTop: 50, marginBottom: 40, backgroundColor: '#fff', boxShadow: '0px 10px 20px 10px #CFE1F2', textAlign: 'center'}}>
-            <h2 style={{color: '#01135d', marginBottom: 50}}>Register</h2>
+            <h2 style={{color: '#01135d', marginBottom: 50}}>Inregistrati-va</h2>
             <div>
                 <div style={{marginBottom: 24, textAlign: 'left', width: 410}}>
-                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="register-username">Username</label>
+                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="register-username">Nume utilizator</label>
                     <input 
                         onChange={e => {
                             setUsername(e.target.value);
                         }}
                         style={{width: '100%', outline: 'none', padding: '8px 16px', border: '1px solid #e0e6e8', borderRadius: 4, fontSize: '1rem', color: '#7C7C7C', transition: 'box-shadow 0.2s'}} 
                         type="text" 
-                        placeholder="username" 
+                        placeholder="Nume utilizator" 
                         id="register-username" 
                     />
                 </div>
@@ -66,31 +66,31 @@ export const RegisterComponent = () => {
                         }}
                         style={{width: '100%', outline: 'none', padding: '8px 16px', border: '1px solid #e0e6e8', borderRadius: 4, fontSize: '1rem', color: '#7C7C7C', transition: 'box-shadow 0.2s'}} 
                         type="text" 
-                        placeholder="name@email.com" 
+                        placeholder="nume@email.com" 
                         id="register-email"
                     />
                 </div>
                 <div style={{marginBottom: 24, textAlign: 'left', width: 410}}>
-                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="register-password">Password</label>
+                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="register-password">Parola</label>
                     <input
                         onChange={e => {
                             setPassword(e.target.value);
                         }}
                         style={{width: '100%', outline: 'none', padding: '8px 16px', border: '1px solid #e0e6e8', borderRadius: 4, fontSize: '1rem', color: '#7C7C7C', transition: 'box-shadow 0.2s'}} 
                         type="password" 
-                        placeholder="Password" 
+                        placeholder="Parola" 
                         id="register-password"
                     />
                 </div>
                 <div style={{marginBottom: 24, textAlign: 'left', width: 410}}>
-                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="register-confirm-password">Confirm Password</label>
+                    <label style={{display: 'inline-block', marginBottom: '0.5rem', color: '#888888'}} htmlFor="register-confirm-password">Confirmare Parola</label>
                     <input 
                         onChange={e => {
                             setConfirmPassword(e.target.value);
                         }}
                         style={{width: '100%', outline: 'none', padding: '8px 16px', border: '1px solid #e0e6e8', borderRadius: 4, fontSize: '1rem', color: '#7C7C7C', transition: 'box-shadow 0.2s'}} 
                         type="password" 
-                        placeholder="Password" 
+                        placeholder="Parola" 
                         id="register-confirm-password"
                     />
                 </div>
@@ -98,10 +98,10 @@ export const RegisterComponent = () => {
                     onClick={() => register()}
                     className='Register-loginButton' 
                     style={{height: 40, width: '98%', border: 'none', borderRadius: 5,backgroundColor: '#01135d', color: '#D7DEFE', fontSize: 16, fontWeight: 'bold', cursor: 'pointer', marginBottom: 20, marginTop: 24}}
-                >Sign up</button>
+                >Inregistrati-va</button>
             </div>
-            <span>Already have an account?
-                <span className='link' style={{marginLeft: 5, color: '#0074cc', cursor: 'pointer'}} onClick={() => navigate('/login')}>Log in</span>
+            <span>Aveti deja cont?
+                <span className='link' style={{marginLeft: 5, color: '#0074cc', cursor: 'pointer'}} onClick={() => navigate('/login')}>Autentificati-va</span>
             </span>
         </div>
 
